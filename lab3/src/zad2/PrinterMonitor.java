@@ -9,16 +9,16 @@ import java.util.concurrent.locks.ReentrantLock;
 public class PrinterMonitor {
 
     private final Lock lock = new ReentrantLock();
-    private final Condition printerAvailable  = lock.newCondition();
+    private final Condition printerAvailable = lock.newCondition();
 
     private final Queue<Integer> freePrinters = new LinkedList<>();
 
     public PrinterMonitor(int printers) {
-        for(int i = 0; i < printers; i++)
+        for (int i = 0; i < printers; i++)
             freePrinters.add(i);
     }
 
-    public int reservePrinter(){
+    public int reservePrinter() {
         int number = -1;
 
         lock.lock();
@@ -36,7 +36,7 @@ public class PrinterMonitor {
         return number;
     }
 
-    public void freePrinter(int number){
+    public void freePrinter(int number) {
         lock.lock();
         freePrinters.add(number);
         lock.unlock();

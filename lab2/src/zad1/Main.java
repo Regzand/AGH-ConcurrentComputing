@@ -10,19 +10,19 @@ public class Main {
         BinarySemaphore semaphore = new BinarySemaphore();
 
         Thread thread1 = new Thread(() -> {
-                for(int i = 0; i < OPERATIONS; i++) {
-                    semaphore.enter();
-                    counter.increase();
-                    semaphore.leave();
-                }
+            for (int i = 0; i < OPERATIONS; i++) {
+                semaphore.enter();
+                counter.increase();
+                semaphore.leave();
+            }
         });
 
         Thread thread2 = new Thread(() -> {
-                for(int i = 0; i < OPERATIONS; i++){
-                    semaphore.enter();
-                    counter.decrease();
-                    semaphore.leave();
-                }
+            for (int i = 0; i < OPERATIONS; i++) {
+                semaphore.enter();
+                counter.decrease();
+                semaphore.leave();
+            }
         });
 
         thread1.start();

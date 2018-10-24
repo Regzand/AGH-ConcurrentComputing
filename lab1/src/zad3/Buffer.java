@@ -4,7 +4,7 @@ public class Buffer {
 
     private String data;
 
-    public synchronized void put(String data){
+    public synchronized void put(String data) {
 
         try {
 
@@ -20,7 +20,7 @@ public class Buffer {
         }
     }
 
-    public synchronized String take(){
+    public synchronized String take() {
 
         String out = null;
 

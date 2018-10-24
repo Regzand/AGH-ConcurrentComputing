@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class BoundedBuffer {
 
     private final Lock lock = new ReentrantLock();
-    private final Condition notFull  = lock.newCondition();
+    private final Condition notFull = lock.newCondition();
     private final Condition notEmpty = lock.newCondition();
 
     private String data = null;

@@ -9,26 +9,23 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Waiter {
 
     private final Lock lock = new ReentrantLock();
-    private final Condition freeTable  = lock.newCondition();
-    private final Condition visitedTable  = lock.newCondition();
-//
-//    private int seatsTaken = 0;
-//    private int waitingFor = -1;
-//    private boolean visited = false;
+    private final Condition freeTable = lock.newCondition();
+    private final Condition visitedTable = lock.newCondition();
+
     private List<Integer> waiting = new ArrayList<>();
 
     private int reservedFor = -1;
     private int seatsTaken = 0;
     private boolean visited = false;
 
-    public void reserveTable(int clientId, int dateId){
+    public void reserveTable(int clientId, int dateId) {
         lock.lock();
 
         try {
 
             waiting.add(clientId);
 
-            while (true){
+            while (true) {
 
                 if (reservedFor == clientId) {
                     reservedFor = -1;
@@ -49,7 +46,7 @@ public class Waiter {
                 freeTable.await();
             }
 
-            waiting.remove(waiting.indexOf(clientId));
+            waiting.remove(clientId);
 
         } catch (InterruptedException ignored) {
         } finally {
@@ -57,7 +54,7 @@ public class Waiter {
         }
     }
 
-    public void freeTable(){
+    public void freeTable() {
         lock.lock();
 
         try {

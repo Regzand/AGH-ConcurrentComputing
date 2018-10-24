@@ -8,7 +8,7 @@ public class Semaphore {
         this.counter = initial;
     }
 
-    public synchronized void enter(){
+    public synchronized void enter() {
         try {
             while (this.counter <= 0)
                 wait();
@@ -19,7 +19,7 @@ public class Semaphore {
         }
     }
 
-    public synchronized void leave(){
+    public synchronized void leave() {
         this.counter++;
         notifyAll();
     }

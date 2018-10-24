@@ -1,10 +1,6 @@
 package zad3;
 
-import java.util.Random;
-
 public class Customer implements Runnable {
-
-    private static final Random rand = new Random();
 
     private static final int VISITS = 10;
 
@@ -20,21 +16,22 @@ public class Customer implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < VISITS; i++){
+        for (int i = 0; i < VISITS; i++) {
             try {
 
-                Thread.sleep(Math.abs(rand.nextInt() % 500));
+                Thread.sleep((long) (Math.random() * 500));
 
                 System.out.printf("%s Waiting for table\n", this);
                 waiter.reserveTable(customerId, dateId);
                 System.out.printf("%s Sit at the table\n", this);
 
-                Thread.sleep(Math.abs(rand.nextInt() % 500));
+                Thread.sleep((long) (Math.random() * 500));
 
                 waiter.freeTable();
                 System.out.printf("%s Leaves table\n", this);
 
-            } catch (InterruptedException igonre) {}
+            } catch (InterruptedException igonre) {
+            }
         }
     }
 

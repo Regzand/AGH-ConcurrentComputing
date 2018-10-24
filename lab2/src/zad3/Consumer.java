@@ -12,7 +12,7 @@ public class Consumer implements Runnable {
 
     public void run() {
 
-        for(int i = 0;  i < OPERATIONS;   i++)
+        for (int i = 0; i < OPERATIONS; i++)
             System.out.println("< " + buffer.take());
 
     }

@@ -9,13 +9,13 @@ public class Main {
         Counter counter = new Counter();
 
         Thread thread1 = new Thread(() -> {
-                for(int i = 0; i < OPERATIONS; i++)
-                    counter.increase();
+            for (int i = 0; i < OPERATIONS; i++)
+                counter.increase();
         });
 
         Thread thread2 = new Thread(() -> {
-                for(int i = 0; i < OPERATIONS; i++)
-                    counter.decrease();
+            for (int i = 0; i < OPERATIONS; i++)
+                counter.decrease();
         });
 
         thread1.start();

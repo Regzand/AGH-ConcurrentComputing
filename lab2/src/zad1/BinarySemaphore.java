@@ -12,7 +12,7 @@ public class BinarySemaphore {
         this.open = open;
     }
 
-    public synchronized void enter(){
+    public synchronized void enter() {
         try {
             while (!open)
                 wait();
@@ -23,7 +23,7 @@ public class BinarySemaphore {
         }
     }
 
-    public synchronized void leave(){
+    public synchronized void leave() {
         this.open = true;
         notifyAll();
     }

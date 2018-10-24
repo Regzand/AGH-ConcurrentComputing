@@ -12,7 +12,7 @@ public class Buffer {
 
     private String data;
 
-    public void put(String data){
+    public void put(String data) {
         lock.lock();
 
         try {
@@ -29,7 +29,7 @@ public class Buffer {
         }
     }
 
-    public String take(){
+    public String take() {
         lock.lock();
 
         String out = null;

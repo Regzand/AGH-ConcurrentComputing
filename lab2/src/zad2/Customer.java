@@ -1,11 +1,8 @@
 package zad2;
 
-import java.util.Random;
-
 public class Customer implements Runnable {
 
     public static final int VISITS = 30;
-    private static final Random ran = new Random();
 
     private final int id;
     private final Semaphore shop;
@@ -17,29 +14,24 @@ public class Customer implements Runnable {
 
     @Override
     public void run() {
-        for(int i = 0; i<VISITS; i++){
-            System.out.println("["+this.id+"] Enters shop");
-
-            shop.enter();
-
-            System.out.println("["+this.id+"] Takes basket");
-
+        for (int i = 0; i < VISITS; i++) {
             try {
-                Thread.sleep(Math.abs(ran.nextInt()%500));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+                System.out.println("[" + this.id + "] Enters shop");
 
-            System.out.println("["+this.id+"] Puts down basket");
+                shop.enter();
 
-            shop.leave();
+                System.out.println("[" + this.id + "] Takes basket");
 
-            System.out.println("["+this.id+"] Leaves shop");
+                Thread.sleep((long) (Math.random() * 500));
 
-            try {
-                Thread.sleep(Math.abs(ran.nextInt()%500));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println("[" + this.id + "] Puts down basket");
+
+                shop.leave();
+
+                System.out.println("[" + this.id + "] Leaves shop");
+
+                Thread.sleep((long) (Math.random() * 500));
+            } catch (InterruptedException ignore) {
             }
         }
     }

@@ -12,9 +12,9 @@ public class Producer implements Runnable {
 
     public void run() {
 
-        for(int i = 0;  i < OPERATIONS;   i++) {
-            buffer.put("message "+i);
-            System.out.println("> message "+i);
+        for (int i = 0; i < OPERATIONS; i++) {
+            buffer.put("message " + i);
+            System.out.println("> message " + i);
         }
 
     }
