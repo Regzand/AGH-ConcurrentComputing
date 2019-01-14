@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="net.sourceforge.htmlcleaner:htmlcleaner:2.22" type="repository">
+    <properties maven-id="net.sourceforge.htmlcleaner:htmlcleaner:2.22" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/sourceforge/htmlcleaner/htmlcleaner/2.22/htmlcleaner-2.22.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
